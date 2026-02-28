@@ -7,13 +7,21 @@ public class Test {
         this.id = id;
         this.name = name;
     }
-    // @Override
-    // public String toString() {
-    //     return "Test{id=" + id + ", name='" + name + "'}";
-    // }
+    @Override
+    public String toString() {
+        return "Test{id=" + id + ", name='" + name + "'}";
+    }
+    @Override
     public boolean equals(Object obj) { 
         Test other = (Test) obj;
         return this.id == other.id && this.name == other.name;
+    }
+
+    //hashcode method is not overridden here, so it will return a unique integer value for different objects.
+    //hashcode code
+    @Override
+    public int hashCode() {
+        return id * 31 + name.hashCode();//
     }
     public static void main(String[] args) {
         Test obj = new Test(1, "Example");
@@ -23,6 +31,10 @@ public class Test {
         Test obj2 = new Test(1, "Example");
         System.out.println(obj.equals(obj2));
         
+        Test obj3 = new Test(2, "Example");
+        System.out.println(obj.equals(obj3));//false because id is different 
+
+
     }
 }
 //Output without overriding toString():
