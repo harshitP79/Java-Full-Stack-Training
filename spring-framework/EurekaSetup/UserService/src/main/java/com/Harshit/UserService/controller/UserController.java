@@ -14,3 +14,4 @@ public class UserController {
         return "Users fetched from USER-SERVICE running on port: "+ port;
     }
 }
+
